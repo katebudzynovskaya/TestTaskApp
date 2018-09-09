@@ -11,10 +11,11 @@ import Foundation
 class APIService: API {
     
     let host = "api.doitserver.in.ua"
+    private(set) var token: String?
     
     let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
-    func signUp(user: User, success: @escaping (Data) -> Void, failure: @escaping (APIError) -> Void) {
+    func signUp(user: User, success: @escaping () -> Void, failure: @escaping (APIError) -> Void) {
         
         let parameters = user.asParameters
         let avatar = UploadImage.init(key: "avatar", image: user.avatar)
@@ -41,7 +42,9 @@ class APIService: API {
                 let json = try? JSONSerialization.jsonObject(with: data) {
                 
                 let response = json as! JSONDictionary
-                let token = response["token"] as? String
+                self.token = response["token"] as? String
+                
+                success()
                 
             } else {
                 failure(.Error("API response cannot be serialized"))
@@ -51,7 +54,7 @@ class APIService: API {
         }.resume()
     }
     
-    func signIn(withCredentials credentials: Credentials,  success: @escaping (Data) -> Void, failure: @escaping (APIError) -> Void) {
+    func signIn(withCredentials credentials: Credentials,  success: @escaping () -> Void, failure: @escaping (APIError) -> Void) {
         let parameters = credentials.asParameters
         
         guard let reuest = RequestBuilder.POSTMultipartRequest(host: host, endpoint: .SignIn, parameters: parameters, image: nil, token: nil)
@@ -76,7 +79,9 @@ class APIService: API {
                 let json = try? JSONSerialization.jsonObject(with: data) {
                 
                 let response = json as! JSONDictionary
-                let token = response["token"] as? String
+                self.token = response["token"] as? String
+                
+                success()
 
             } else {
                 failure(.Error("API response cannot be serialized"))

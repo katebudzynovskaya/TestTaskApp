@@ -23,13 +23,21 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private var viewModel = LoginViewModel()
+    var viewModel: LoginViewModel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
         self.viewModel.login(success: {
             
-            // navigate to image list
+            self.navigationController?.popViewController(animated: false)
+            self.viewModel.loginDidFinish?()
+            
         }) { (message) in
             UserMessagePresenter.showMessage(message, inController: self)
         }

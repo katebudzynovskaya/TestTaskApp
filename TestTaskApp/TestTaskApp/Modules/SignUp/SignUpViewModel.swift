@@ -13,10 +13,18 @@ typealias ValidationResult = (valid: Bool, message: String)
 
 class SignUpViewModel {
     
+    let api: APIService
+    
     var username = Binding<String>("")
     var email = Binding<String>("")
     var password = Binding<String>("")
     var avatar: Binding<UIImage>!
+    
+    var signUpDidFinish: (() -> (Void))?
+    
+    init(api: APIService) {
+        self.api = api
+    }
     
     func signUp(success: @escaping () -> (Void), failure: @escaping (String) -> Void) {
         
@@ -27,8 +35,7 @@ class SignUpViewModel {
             let credentials = Credentials(email: email.value!, password: password.value!)
             let user = User.init(credentials: credentials, avatar: (avatar?.value)!, username: username.value!)
             
-            let api = APIService()
-            api.signUp(user: user, success: { (data) in
+            api.signUp(user: user, success: {
                 
                 DispatchQueue.main.async {
                     success()

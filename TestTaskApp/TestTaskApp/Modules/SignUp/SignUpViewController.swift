@@ -36,17 +36,21 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    private var viewModel = SignUpViewModel()
+    var viewModel: SignUpViewModel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
         viewModel.signUp(success: {
             
-            // navigate to image list
+            self.navigationController?.popViewController(animated: false)
+            self.viewModel.signUpDidFinish?()
+            
         }) { (message) in
            UserMessagePresenter.showMessage(message, inController: self)
         }

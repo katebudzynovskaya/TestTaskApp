@@ -54,7 +54,7 @@ enum APIError : Error {
 
 protocol API {
         
-    func signUp(user: User, success: @escaping (Data) -> Void, failure: @escaping (APIError) -> Void)
-    func signIn(withCredentials credentials: Credentials,  success: @escaping (Data) -> Void, failure: @escaping (APIError) -> Void)
+    func signUp(user: User, success: @escaping () -> Void, failure: @escaping (APIError) -> Void)
+    func signIn(withCredentials credentials: Credentials,  success: @escaping () -> Void, failure: @escaping (APIError) -> Void)
 
 }

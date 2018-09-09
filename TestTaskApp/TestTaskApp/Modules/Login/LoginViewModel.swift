@@ -10,20 +10,30 @@ import Foundation
 
 class LoginViewModel {
     
+    let api: APIService
+    
     var email = Binding<String>("")
     var password = Binding<String>("")
     
+    var loginDidFinish: (() -> (Void))?
+    
+    init(api: APIService) {
+        self.api = api
+    }
+    
     func login(success: @escaping () -> Void, failure: @escaping (String) -> Void) {
-        
+            
         let result = isValid()
         
         if result.valid {
             
-            let api = APIService()
-            
             let credentials = Credentials(email: email.value!, password: password.value!)
             
-            api.signIn(withCredentials: credentials, success: { (data) in
+            api.signIn(withCredentials: credentials, success: {
+                
+                DispatchQueue.main.async {
+                    success()
+                }
                 
             }) { (error) in
                 
