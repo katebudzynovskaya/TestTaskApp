@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44338EBA21452E5D00A6813E /* UserMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EB921452E5D00A6813E /* UserMessagePresenter.swift */; };
+		44338EBD21452F6200A6813E /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EBC21452F6200A6813E /* PhotoListViewController.swift */; };
 		445964902144698A0094D134 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459648F2144698A0094D134 /* SignUpViewModel.swift */; };
 		445964932144E95F0094D134 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964922144E95F0094D134 /* StartViewController.swift */; };
 		445964952144EF420094D134 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964942144EF420094D134 /* UIView+IBInspectable.swift */; };
@@ -16,6 +18,8 @@
 		4459649E21450A440094D134 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459649D21450A440094D134 /* ImageSelector.swift */; };
 		445964A0214522500094D134 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459649F214522500094D134 /* EmailValidator.swift */; };
 		445964A2214522810094D134 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964A1214522810094D134 /* PasswordValidator.swift */; };
+		445964A5214528140094D134 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964A4214528140094D134 /* LoginViewController.swift */; };
+		445964A7214528220094D134 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964A6214528220094D134 /* LoginViewModel.swift */; };
 		44F085152143D305006A11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F085142143D305006A11F0 /* AppDelegate.swift */; };
 		44F085172143D305006A11F0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F085162143D305006A11F0 /* SignUpViewController.swift */; };
 		44F0851A2143D305006A11F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F085182143D305006A11F0 /* Main.storyboard */; };
@@ -51,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44338EB921452E5D00A6813E /* UserMessagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessagePresenter.swift; sourceTree = "<group>"; };
+		44338EBC21452F6200A6813E /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		4459648F2144698A0094D134 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		445964922144E95F0094D134 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		445964942144EF420094D134 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 		4459649D21450A440094D134 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		4459649F214522500094D134 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		445964A1214522810094D134 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		445964A4214528140094D134 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		445964A6214528220094D134 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		44F085112143D305006A11F0 /* TestTaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F085142143D305006A11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F085162143D305006A11F0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -108,11 +116,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44338EBB21452F3C00A6813E /* PhotoList */ = {
+			isa = PBXGroup;
+			children = (
+				44338EBC21452F6200A6813E /* PhotoListViewController.swift */,
+			);
+			path = PhotoList;
+			sourceTree = "<group>";
+		};
 		4459648D214469290094D134 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				445964912144E94E0094D134 /* StartView */,
 				4459648E214469400094D134 /* SignUp */,
+				445964A3214527FD0094D134 /* Login */,
+				44338EBB21452F3C00A6813E /* PhotoList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -141,6 +159,15 @@
 				4459649B214501D40094D134 /* BindingTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		445964A3214527FD0094D134 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				445964A4214528140094D134 /* LoginViewController.swift */,
+				445964A6214528220094D134 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		44F085082143D305006A11F0 = {
@@ -234,6 +261,7 @@
 				4459649D21450A440094D134 /* ImageSelector.swift */,
 				4459649F214522500094D134 /* EmailValidator.swift */,
 				445964A1214522810094D134 /* PasswordValidator.swift */,
+				44338EB921452E5D00A6813E /* UserMessagePresenter.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -382,14 +410,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44338EBD21452F6200A6813E /* PhotoListViewController.swift in Sources */,
 				44F0854E21440C84006A11F0 /* Credentials.swift in Sources */,
 				44F0855A214411A2006A11F0 /* UploadImage.swift in Sources */,
 				4459649E21450A440094D134 /* ImageSelector.swift in Sources */,
+				44338EBA21452E5D00A6813E /* UserMessagePresenter.swift in Sources */,
 				44F0855221440D07006A11F0 /* APIService.swift in Sources */,
 				44F0855721440DAB006A11F0 /* URLBuilder.swift in Sources */,
 				44F085172143D305006A11F0 /* SignUpViewController.swift in Sources */,
 				4459649C214501D40094D134 /* BindingTextField.swift in Sources */,
 				4459649A2145011C0094D134 /* BindingImageView.swift in Sources */,
+				445964A5214528140094D134 /* LoginViewController.swift in Sources */,
 				445964952144EF420094D134 /* UIView+IBInspectable.swift in Sources */,
 				445964932144E95F0094D134 /* StartViewController.swift in Sources */,
 				44F0854921440BD4006A11F0 /* API.swift in Sources */,
@@ -401,6 +432,7 @@
 				44596497214500D20094D134 /* BindingType.swift in Sources */,
 				445964902144698A0094D134 /* SignUpViewModel.swift in Sources */,
 				44F0855521440D71006A11F0 /* RequestBuilder.swift in Sources */,
+				445964A7214528220094D134 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

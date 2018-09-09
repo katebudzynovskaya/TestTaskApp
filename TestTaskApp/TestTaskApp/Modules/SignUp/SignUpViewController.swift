@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController {
             
             // navigate to image list
         }) { (message) in
-           self.showMessage(message)
+           UserMessagePresenter.showMessage(message, inController: self)
         }
     }
     
@@ -61,13 +61,6 @@ class SignUpViewController: UIViewController {
             self.avatarImageView.image = image
             self.avatarImageView.contentMode = .scaleAspectFill
         }
-    }
-    
-    func showMessage(_ message: String) {
-        
-        let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
 
