@@ -38,21 +38,15 @@ protocol Parameterized {
 typealias JSONDictionary = [String: Any]
 
 enum APIError : Error {
-    
-    case InvalidRequestError(String)
-    case IncorrectRequestError(String)
-    case InvalidAccessToken(String)
-    case SignUpError(String)
-    case SignInError(String)
-    case SerializationError(String)
-    case UnknownError(String)
+
+    case Error(String)
     
     init?(code: Int) {
         switch code {
         case 400:
-            self = .IncorrectRequestError("Incorrect request data error")
+            self = .Error("Incorrect request data error")
         case 403:
-            self = .InvalidAccessToken("Invalid access token")
+            self = .Error("Invalid access token")
         default: return nil
         }
     }

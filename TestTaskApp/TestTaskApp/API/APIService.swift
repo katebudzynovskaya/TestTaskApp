@@ -21,13 +21,13 @@ class APIService: API {
         
         guard let request = RequestBuilder.POSTMultipartRequest(host: host, endpoint: .SignUp, parameters: parameters, image: avatar, token: nil)
             else {
-                failure(.InvalidRequestError("Invalid POST request"))
+                failure(.Error("Invalid POST request"))
                 return }
         
         self.session.dataTask(with: request) { (data, response, error) in
             
             if let error = error {
-                failure(APIError.SignUpError(error.localizedDescription))
+                failure(.Error(error.localizedDescription))
                 return
             }
             
@@ -44,7 +44,7 @@ class APIService: API {
                 let token = response["token"] as? String
                 
             } else {
-                failure(APIError.SerializationError("API response cannot be serialized"))
+                failure(.Error("API response cannot be serialized"))
             }
 
             
@@ -56,13 +56,13 @@ class APIService: API {
         
         guard let reuest = RequestBuilder.POSTMultipartRequest(host: host, endpoint: .SignIn, parameters: parameters, image: nil, token: nil)
             else {
-                failure(.InvalidRequestError("Invalid POST request"))
+                failure(.Error("Invalid POST request"))
                 return }
         
         self.session.dataTask(with: reuest) { (data, response, error) in
             
             if let error = error {
-                failure(APIError.SignInError(error.localizedDescription))
+                failure(.Error(error.localizedDescription))
                 return
             }
             
@@ -79,7 +79,7 @@ class APIService: API {
                 let token = response["token"] as? String
 
             } else {
-                failure(APIError.SerializationError("API response cannot be serialized"))
+                failure(.Error("API response cannot be serialized"))
             }
             
         }.resume()
