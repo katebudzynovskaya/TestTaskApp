@@ -10,6 +10,14 @@
 		44338EBA21452E5D00A6813E /* UserMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EB921452E5D00A6813E /* UserMessagePresenter.swift */; };
 		44338EBD21452F6200A6813E /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EBC21452F6200A6813E /* PhotoListViewController.swift */; };
 		44338EC02145740500A6813E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EBF2145740400A6813E /* RootViewController.swift */; };
+		44338EC22145898D00A6813E /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EC12145898D00A6813E /* PhotoListViewModel.swift */; };
+		44338EC5214589AE00A6813E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EC4214589AE00A6813E /* Photo.swift */; };
+		44338EC8214589DF00A6813E /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EC7214589DF00A6813E /* PhotoViewModel.swift */; };
+		44338ECA214589F200A6813E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338EC9214589F200A6813E /* PhotoCollectionViewCell.swift */; };
+		44338ECD21458AAB00A6813E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338ECC21458AAB00A6813E /* ImageCache.swift */; };
+		44338ECF21458AC600A6813E /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338ECE21458AC600A6813E /* ImageCacheService.swift */; };
+		44338ED121458AF500A6813E /* LoadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338ED021458AF500A6813E /* LoadingImage.swift */; };
+		44338ED321458D2A00A6813E /* UIImage+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44338ED221458D2A00A6813E /* UIImage+Placeholder.swift */; };
 		445964902144698A0094D134 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459648F2144698A0094D134 /* SignUpViewModel.swift */; };
 		445964932144E95F0094D134 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964922144E95F0094D134 /* StartViewController.swift */; };
 		445964952144EF420094D134 /* UIView+IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445964942144EF420094D134 /* UIView+IBInspectable.swift */; };
@@ -59,6 +67,14 @@
 		44338EB921452E5D00A6813E /* UserMessagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessagePresenter.swift; sourceTree = "<group>"; };
 		44338EBC21452F6200A6813E /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		44338EBF2145740400A6813E /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		44338EC12145898D00A6813E /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		44338EC4214589AE00A6813E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		44338EC7214589DF00A6813E /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		44338EC9214589F200A6813E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		44338ECC21458AAB00A6813E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		44338ECE21458AC600A6813E /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		44338ED021458AF500A6813E /* LoadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImage.swift; sourceTree = "<group>"; };
+		44338ED221458D2A00A6813E /* UIImage+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Placeholder.swift"; sourceTree = "<group>"; };
 		4459648F2144698A0094D134 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		445964922144E95F0094D134 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		445964942144EF420094D134 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
@@ -121,7 +137,9 @@
 		44338EBB21452F3C00A6813E /* PhotoList */ = {
 			isa = PBXGroup;
 			children = (
+				44338EC6214589D400A6813E /* PhotoCell */,
 				44338EBC21452F6200A6813E /* PhotoListViewController.swift */,
+				44338EC12145898D00A6813E /* PhotoListViewModel.swift */,
 			);
 			path = PhotoList;
 			sourceTree = "<group>";
@@ -132,6 +150,32 @@
 				44338EBF2145740400A6813E /* RootViewController.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		44338EC3214589A300A6813E /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				44338EC4214589AE00A6813E /* Photo.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		44338EC6214589D400A6813E /* PhotoCell */ = {
+			isa = PBXGroup;
+			children = (
+				44338EC7214589DF00A6813E /* PhotoViewModel.swift */,
+				44338EC9214589F200A6813E /* PhotoCollectionViewCell.swift */,
+			);
+			path = PhotoCell;
+			sourceTree = "<group>";
+		};
+		44338ECB21458A9700A6813E /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				44338ECC21458AAB00A6813E /* ImageCache.swift */,
+				44338ECE21458AC600A6813E /* ImageCacheService.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		4459648D214469290094D134 /* Modules */ = {
@@ -206,6 +250,7 @@
 			children = (
 				44F085142143D305006A11F0 /* AppDelegate.swift */,
 				4459648D214469290094D134 /* Modules */,
+				44338ECB21458A9700A6813E /* Cache */,
 				44F0854721440BC8006A11F0 /* API */,
 				44F085422143D4F8006A11F0 /* Model */,
 				445964982145010D0094D134 /* Views */,
@@ -240,6 +285,7 @@
 		44F085422143D4F8006A11F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44338EC3214589A300A6813E /* Photo */,
 				44F0854A21440C62006A11F0 /* User */,
 			);
 			path = Model;
@@ -273,6 +319,7 @@
 				4459649F214522500094D134 /* EmailValidator.swift */,
 				445964A1214522810094D134 /* PasswordValidator.swift */,
 				44338EB921452E5D00A6813E /* UserMessagePresenter.swift */,
+				44338ED021458AF500A6813E /* LoadingImage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -283,6 +330,7 @@
 				44F0855C21441276006A11F0 /* Data+Extension.swift */,
 				445964942144EF420094D134 /* UIView+IBInspectable.swift */,
 				44596496214500D20094D134 /* BindingType.swift */,
+				44338ED221458D2A00A6813E /* UIImage+Placeholder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -424,15 +472,20 @@
 				44338EBD21452F6200A6813E /* PhotoListViewController.swift in Sources */,
 				44F0854E21440C84006A11F0 /* Credentials.swift in Sources */,
 				44F0855A214411A2006A11F0 /* UploadImage.swift in Sources */,
+				44338ED321458D2A00A6813E /* UIImage+Placeholder.swift in Sources */,
 				4459649E21450A440094D134 /* ImageSelector.swift in Sources */,
 				44338EBA21452E5D00A6813E /* UserMessagePresenter.swift in Sources */,
 				44F0855221440D07006A11F0 /* APIService.swift in Sources */,
+				44338EC5214589AE00A6813E /* Photo.swift in Sources */,
 				44F0855721440DAB006A11F0 /* URLBuilder.swift in Sources */,
 				44F085172143D305006A11F0 /* SignUpViewController.swift in Sources */,
+				44338ED121458AF500A6813E /* LoadingImage.swift in Sources */,
 				4459649C214501D40094D134 /* BindingTextField.swift in Sources */,
 				4459649A2145011C0094D134 /* BindingImageView.swift in Sources */,
 				445964A5214528140094D134 /* LoginViewController.swift in Sources */,
 				445964952144EF420094D134 /* UIView+IBInspectable.swift in Sources */,
+				44338EC8214589DF00A6813E /* PhotoViewModel.swift in Sources */,
+				44338ECF21458AC600A6813E /* ImageCacheService.swift in Sources */,
 				445964932144E95F0094D134 /* StartViewController.swift in Sources */,
 				44F0854921440BD4006A11F0 /* API.swift in Sources */,
 				44338EC02145740500A6813E /* RootViewController.swift in Sources */,
@@ -444,7 +497,10 @@
 				44596497214500D20094D134 /* BindingType.swift in Sources */,
 				445964902144698A0094D134 /* SignUpViewModel.swift in Sources */,
 				44F0855521440D71006A11F0 /* RequestBuilder.swift in Sources */,
+				44338ECA214589F200A6813E /* PhotoCollectionViewCell.swift in Sources */,
+				44338EC22145898D00A6813E /* PhotoListViewModel.swift in Sources */,
 				445964A7214528220094D134 /* LoginViewModel.swift in Sources */,
+				44338ECD21458AAB00A6813E /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

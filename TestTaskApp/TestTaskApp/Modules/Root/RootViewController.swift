@@ -12,14 +12,13 @@ import UIKit
 class RootViewController: UIViewController {
 
     var api: APIService!
-    
-    // property for image cache
+    var imageCache: ImageCacheService!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.api = APIService()
-        // init image cache
+        self.imageCache = ImageCacheService(service: api)
     }
     
     override func viewDidLoad() {
@@ -51,7 +50,8 @@ class RootViewController: UIViewController {
         let photoListController = storyboard?.instantiateViewController(withIdentifier: "PhotoListViewController") as? PhotoListViewController
         
         guard let photoListVC = photoListController else { return }
-        // init view model with api and cache and set
+        
+        photoListVC.viewModel = PhotoListViewModel(service: self.api, cache: self.imageCache)
         
         self.navigationController?.pushViewController(photoListVC, animated: false)
     }
