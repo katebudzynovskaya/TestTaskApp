@@ -153,6 +153,49 @@ class APIService: API {
         }.resume()
     }
     
+    func loadGif(success: @escaping (URL) -> Void, failure: @escaping (APIError) -> Void) {
+        
+        guard let token = token else {
+            failure(.Error("No token access"))
+            return
+        }
+        
+        guard let request = RequestBuilder.GETRequest(host: host, endpoint: .Gif, token: token)
+            else {
+                failure(.Error("Invalid POST request"))
+                return
+        }
+        
+        self.session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                failure(.Error(error.localizedDescription))
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse,
+                let responseError = APIError.init(code: httpResponse.statusCode) {
+                failure(responseError)
+                return
+            }
+            
+            if let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data) {
+                
+                let rootDictionary = json as! JSONDictionary
+                
+                if let gifUrl = rootDictionary["gif"] as? String,
+                    let url = URL(string: gifUrl) {
+                    
+                    success(url)
+                    
+                } else {
+                    failure(.Error("Invalid response data"))
+                }
+            }
+        }.resume()
+    }
+    
     func executeRequest(url: String, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
         
         guard let url = URL(string: url) else { return }

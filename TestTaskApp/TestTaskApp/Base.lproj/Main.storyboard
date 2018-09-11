@@ -272,6 +272,8 @@
                             <outlet property="delegate" destination="90Q-fq-Pdd" id="oGC-NE-RIU"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEB-wA-DbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,6 +357,38 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="1586.3568215892055"/>
+        </scene>
+        <!--Gif View Controller-->
+        <scene sceneID="5Uf-wR-u2r">
+            <objects>
+                <viewController storyboardIdentifier="GifViewController" id="sSp-Xl-Wcb" customClass="GifViewController" customModule="TestTaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DAo-5z-agJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView userInteractionEnabled="NO" contentMode="scaleAspectFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTr-1d-kUU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <viewLayoutGuide key="safeArea" id="ut2-p3-rwJ"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oTr-1d-kUU" firstAttribute="top" secondItem="QgX-Dj-w2X" secondAttribute="top" id="4jQ-o2-aRZ"/>
+                            <constraint firstItem="oTr-1d-kUU" firstAttribute="trailing" secondItem="QgX-Dj-w2X" secondAttribute="trailing" id="Vlw-vj-MgF"/>
+                            <constraint firstItem="oTr-1d-kUU" firstAttribute="leading" secondItem="QgX-Dj-w2X" secondAttribute="leading" id="YLJ-xf-e9p"/>
+                            <constraint firstItem="QgX-Dj-w2X" firstAttribute="bottom" secondItem="oTr-1d-kUU" secondAttribute="bottom" id="ZTM-RE-QvA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QgX-Dj-w2X"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="oTr-1d-kUU" id="SCI-7K-TlQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mpV-J6-Mtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119.2" y="2260.1199400299852"/>
         </scene>
         <!--Login-->
         <scene sceneID="rVv-fV-P1o">

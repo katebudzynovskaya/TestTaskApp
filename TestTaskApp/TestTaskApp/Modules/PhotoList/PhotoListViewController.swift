@@ -50,6 +50,28 @@ class PhotoListViewController : UICollectionViewController {
     
     @objc func gifButtonPressed() {
         
+        let vm = PhotoGifViewModel(api: viewModel.api)
+        vm.getGif(success: { [weak self] (url) in
+            
+            self?.showGif(url: url)
+            
+        }) { [weak self] (message) -> (Void) in
+            
+            guard let sself = self else { return }
+            UserMessagePresenter.showMessage(message, inController: sself)
+        }
+    }
+    
+    func showGif(url: URL) {
+        
+        let gifConroller = storyboard?.instantiateViewController(withIdentifier: "GifViewController") as? GifViewController
+        
+        guard let gifVC = gifConroller else { return }
+       
+        gifVC.gifURL = url
+        gifVC.configurePopover(sourceView: self.navigationController?.navigationBar)
+        
+        self.present(gifVC, animated: true)
     }
 }
 
