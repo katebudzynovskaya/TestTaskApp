@@ -127,6 +127,32 @@ class APIService: API {
         }.resume()
     }
     
+    func createPhoto(photo: UploadPhoto, success: @escaping () -> Void, failure: @escaping (APIError) -> Void) {
+        
+        let parameters = photo.asParameters
+        guard let request = RequestBuilder.POSTMultipartRequest(host: host, endpoint: .Image, parameters: parameters, image: photo.image, token: token)
+            else {
+                failure(.Error("Invalid POST request"))
+                return }
+        
+        self.session.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                failure(.Error(error.localizedDescription))
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse,
+                let responseError = APIError.init(code: httpResponse.statusCode) {
+                failure(responseError)
+                return
+            }
+            
+            success()
+            
+        }.resume()
+    }
+    
     func executeRequest(url: String, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
         
         guard let url = URL(string: url) else { return }

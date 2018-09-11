@@ -48,7 +48,9 @@
 	</dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Please allow access to selecte photos from your Photo Library</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Please allow access to take photos</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to take photos</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow access your location while using application</string>
 </dict>
 </plist>

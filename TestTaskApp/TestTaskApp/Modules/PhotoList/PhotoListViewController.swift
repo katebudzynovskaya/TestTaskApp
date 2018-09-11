@@ -19,6 +19,7 @@ class PhotoListViewController : UICollectionViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.hidesBackButton = true
         
+        setupBarItems()
         bind()
         viewModel.loadPhotos()
     }
@@ -28,6 +29,27 @@ class PhotoListViewController : UICollectionViewController {
         self.viewModel.didUpdate = { [weak self] _ in
             self?.collectionView?.reloadData()
         }
+    }
+    
+    func setupBarItems() {
+        
+        let addButton = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addPhotoPressed))
+        let gifButton = UIBarButtonItem.init(barButtonSystemItem: .play, target: self, action: #selector(gifButtonPressed))
+        
+        self.navigationItem.rightBarButtonItems = [addButton, gifButton]
+    }
+    
+    @objc func addPhotoPressed() {
+        let addViewController = storyboard?.instantiateViewController(withIdentifier: "AddPhotoViewController") as? AddPhotoViewController
+        
+        guard let addVC = addViewController else { return }
+        addVC.viewModel = AddPhotoViewModel(api: viewModel.api)
+        
+        navigationController?.pushViewController(addVC, animated: true)
+    }
+    
+    @objc func gifButtonPressed() {
+        
     }
 }
 

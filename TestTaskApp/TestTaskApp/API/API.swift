@@ -57,6 +57,7 @@ protocol API {
     func signUp(user: User, success: @escaping () -> Void, failure: @escaping (APIError) -> Void)
     func signIn(withCredentials credentials: Credentials,  success: @escaping () -> Void, failure: @escaping (APIError) -> Void)
     func loadPhotos(success: @escaping (JSONDictionary) -> Void, failure: @escaping (APIError) -> Void)
+    func createPhoto(photo: UploadPhoto, success: @escaping () -> Void, failure: @escaping (APIError) -> Void)
     
     func executeRequest(url: String, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void)
 

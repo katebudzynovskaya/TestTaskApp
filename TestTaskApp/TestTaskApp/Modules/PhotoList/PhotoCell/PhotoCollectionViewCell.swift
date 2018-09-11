@@ -36,7 +36,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.viewModel.reset()
+        self.viewModel?.reset()
     }
     
 }
